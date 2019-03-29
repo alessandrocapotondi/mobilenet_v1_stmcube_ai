@@ -50,3 +50,10 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+# STMCube files
+.settings/*
+/Debug/
+/Release/
+NUCLEO-H743ZI.xml
+*.cfg
