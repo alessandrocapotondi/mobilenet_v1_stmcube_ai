@@ -2,7 +2,7 @@
   ******************************************************************************
   * @file    mobilenet.h
   * @author  AST Embedded Analytics Research Platform
-  * @date    Mon Apr  1 16:13:02 2019
+  * @date    Tue Apr  2 10:27:45 2019
   * @brief   AI Tool Automatic Code Generator for Embedded NN computing
   ******************************************************************************
   * @attention

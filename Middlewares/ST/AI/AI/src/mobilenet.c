@@ -2,7 +2,7 @@
   ******************************************************************************
   * @file    mobilenet.c
   * @author  AST Embedded Analytics Research Platform
-  * @date    Mon Apr  1 16:13:02 2019
+  * @date    Tue Apr  2 10:27:45 2019
   * @brief   AI Tool Automatic Code Generator for Embedded NN computing
   ******************************************************************************
   * @attention
@@ -46,14 +46,14 @@
 #define AI_NET_OBJ_INSTANCE g_mobilenet
  
 #undef AI_MOBILENET_MODEL_SIGNATURE
-#define AI_MOBILENET_MODEL_SIGNATURE     "ee16015e9530ca3c2b2c6b22ad0ef279"
+#define AI_MOBILENET_MODEL_SIGNATURE     "0fd4987d75f457fa0549bbf5f62821c8"
 
 #ifndef AI_TOOLS_REVISION_ID
 #define AI_TOOLS_REVISION_ID     "(rev-)"
 #endif
 
 #undef AI_TOOLS_DATE_TIME
-#define AI_TOOLS_DATE_TIME   "Mon Apr  1 16:13:02 2019"
+#define AI_TOOLS_DATE_TIME   "Tue Apr  2 10:27:45 2019"
 
 #undef AI_TOOLS_COMPILE_TIME
 #define AI_TOOLS_COMPILE_TIME    __DATE__ " " __TIME__
@@ -541,7 +541,7 @@ AI_LAYER_OBJ_DECLARE(
   &AI_NET_OBJ_INSTANCE, &conv_dw_1_layer, AI_STATIC,
   .tensors = &conv1_chain, 
   .groups = 1, 
-  .nl_func = nl_func_relu_array_f32, 
+  .nl_func = nl_func_relu6_array_f32, 
   .filter_stride = AI_SHAPE_2D_INIT(2, 2), 
   .filter_pad = AI_SHAPE_2D_INIT(0, 0), 
 )
@@ -591,7 +591,7 @@ AI_LAYER_OBJ_DECLARE(
   &AI_NET_OBJ_INSTANCE, &conv_pw_1_layer, AI_STATIC,
   .tensors = &conv_dw_1_chain, 
   .groups = 8, 
-  .nl_func = nl_func_relu_array_f32, 
+  .nl_func = nl_func_relu6_array_f32, 
   .filter_stride = AI_SHAPE_2D_INIT(1, 1), 
   .filter_pad = AI_SHAPE_2D_INIT(1, 1), 
 )
@@ -641,7 +641,7 @@ AI_LAYER_OBJ_DECLARE(
   &AI_NET_OBJ_INSTANCE, &conv_dw_2_layer, AI_STATIC,
   .tensors = &conv_pw_1_chain, 
   .groups = 1, 
-  .nl_func = nl_func_relu_array_f32, 
+  .nl_func = nl_func_relu6_array_f32, 
   .filter_stride = AI_SHAPE_2D_INIT(1, 1), 
   .filter_pad = AI_SHAPE_2D_INIT(0, 0), 
 )
@@ -691,7 +691,7 @@ AI_LAYER_OBJ_DECLARE(
   &AI_NET_OBJ_INSTANCE, &conv_pw_2_layer, AI_STATIC,
   .tensors = &conv_dw_2_chain, 
   .groups = 16, 
-  .nl_func = nl_func_relu_array_f32, 
+  .nl_func = nl_func_relu6_array_f32, 
   .filter_stride = AI_SHAPE_2D_INIT(2, 2), 
   .filter_pad = AI_SHAPE_2D_INIT(0, 0), 
 )
@@ -741,7 +741,7 @@ AI_LAYER_OBJ_DECLARE(
   &AI_NET_OBJ_INSTANCE, &conv_dw_3_layer, AI_STATIC,
   .tensors = &conv_pw_2_chain, 
   .groups = 1, 
-  .nl_func = nl_func_relu_array_f32, 
+  .nl_func = nl_func_relu6_array_f32, 
   .filter_stride = AI_SHAPE_2D_INIT(1, 1), 
   .filter_pad = AI_SHAPE_2D_INIT(0, 0), 
 )
@@ -791,7 +791,7 @@ AI_LAYER_OBJ_DECLARE(
   &AI_NET_OBJ_INSTANCE, &conv_pw_3_layer, AI_STATIC,
   .tensors = &conv_dw_3_chain, 
   .groups = 32, 
-  .nl_func = nl_func_relu_array_f32, 
+  .nl_func = nl_func_relu6_array_f32, 
   .filter_stride = AI_SHAPE_2D_INIT(1, 1), 
   .filter_pad = AI_SHAPE_2D_INIT(1, 1), 
 )
@@ -841,7 +841,7 @@ AI_LAYER_OBJ_DECLARE(
   &AI_NET_OBJ_INSTANCE, &conv_dw_4_layer, AI_STATIC,
   .tensors = &conv_pw_3_chain, 
   .groups = 1, 
-  .nl_func = nl_func_relu_array_f32, 
+  .nl_func = nl_func_relu6_array_f32, 
   .filter_stride = AI_SHAPE_2D_INIT(1, 1), 
   .filter_pad = AI_SHAPE_2D_INIT(0, 0), 
 )
@@ -891,7 +891,7 @@ AI_LAYER_OBJ_DECLARE(
   &AI_NET_OBJ_INSTANCE, &conv_pw_4_layer, AI_STATIC,
   .tensors = &conv_dw_4_chain, 
   .groups = 32, 
-  .nl_func = nl_func_relu_array_f32, 
+  .nl_func = nl_func_relu6_array_f32, 
   .filter_stride = AI_SHAPE_2D_INIT(2, 2), 
   .filter_pad = AI_SHAPE_2D_INIT(0, 0), 
 )
@@ -941,7 +941,7 @@ AI_LAYER_OBJ_DECLARE(
   &AI_NET_OBJ_INSTANCE, &conv_dw_5_layer, AI_STATIC,
   .tensors = &conv_pw_4_chain, 
   .groups = 1, 
-  .nl_func = nl_func_relu_array_f32, 
+  .nl_func = nl_func_relu6_array_f32, 
   .filter_stride = AI_SHAPE_2D_INIT(1, 1), 
   .filter_pad = AI_SHAPE_2D_INIT(0, 0), 
 )
@@ -991,7 +991,7 @@ AI_LAYER_OBJ_DECLARE(
   &AI_NET_OBJ_INSTANCE, &conv_pw_5_layer, AI_STATIC,
   .tensors = &conv_dw_5_chain, 
   .groups = 64, 
-  .nl_func = nl_func_relu_array_f32, 
+  .nl_func = nl_func_relu6_array_f32, 
   .filter_stride = AI_SHAPE_2D_INIT(1, 1), 
   .filter_pad = AI_SHAPE_2D_INIT(1, 1), 
 )
@@ -1041,7 +1041,7 @@ AI_LAYER_OBJ_DECLARE(
   &AI_NET_OBJ_INSTANCE, &conv_dw_6_layer, AI_STATIC,
   .tensors = &conv_pw_5_chain, 
   .groups = 1, 
-  .nl_func = nl_func_relu_array_f32, 
+  .nl_func = nl_func_relu6_array_f32, 
   .filter_stride = AI_SHAPE_2D_INIT(1, 1), 
   .filter_pad = AI_SHAPE_2D_INIT(0, 0), 
 )
@@ -1091,7 +1091,7 @@ AI_LAYER_OBJ_DECLARE(
   &AI_NET_OBJ_INSTANCE, &conv_pw_6_layer, AI_STATIC,
   .tensors = &conv_dw_6_chain, 
   .groups = 64, 
-  .nl_func = nl_func_relu_array_f32, 
+  .nl_func = nl_func_relu6_array_f32, 
   .filter_stride = AI_SHAPE_2D_INIT(2, 2), 
   .filter_pad = AI_SHAPE_2D_INIT(0, 0), 
 )
@@ -1141,7 +1141,7 @@ AI_LAYER_OBJ_DECLARE(
   &AI_NET_OBJ_INSTANCE, &conv_dw_7_layer, AI_STATIC,
   .tensors = &conv_pw_6_chain, 
   .groups = 1, 
-  .nl_func = nl_func_relu_array_f32, 
+  .nl_func = nl_func_relu6_array_f32, 
   .filter_stride = AI_SHAPE_2D_INIT(1, 1), 
   .filter_pad = AI_SHAPE_2D_INIT(0, 0), 
 )
@@ -1191,7 +1191,7 @@ AI_LAYER_OBJ_DECLARE(
   &AI_NET_OBJ_INSTANCE, &conv_pw_7_layer, AI_STATIC,
   .tensors = &conv_dw_7_chain, 
   .groups = 128, 
-  .nl_func = nl_func_relu_array_f32, 
+  .nl_func = nl_func_relu6_array_f32, 
   .filter_stride = AI_SHAPE_2D_INIT(1, 1), 
   .filter_pad = AI_SHAPE_2D_INIT(1, 1), 
 )
@@ -1241,7 +1241,7 @@ AI_LAYER_OBJ_DECLARE(
   &AI_NET_OBJ_INSTANCE, &conv_dw_8_layer, AI_STATIC,
   .tensors = &conv_pw_7_chain, 
   .groups = 1, 
-  .nl_func = nl_func_relu_array_f32, 
+  .nl_func = nl_func_relu6_array_f32, 
   .filter_stride = AI_SHAPE_2D_INIT(1, 1), 
   .filter_pad = AI_SHAPE_2D_INIT(0, 0), 
 )
@@ -1291,7 +1291,7 @@ AI_LAYER_OBJ_DECLARE(
   &AI_NET_OBJ_INSTANCE, &conv_pw_8_layer, AI_STATIC,
   .tensors = &conv_dw_8_chain, 
   .groups = 128, 
-  .nl_func = nl_func_relu_array_f32, 
+  .nl_func = nl_func_relu6_array_f32, 
   .filter_stride = AI_SHAPE_2D_INIT(1, 1), 
   .filter_pad = AI_SHAPE_2D_INIT(1, 1), 
 )
@@ -1341,7 +1341,7 @@ AI_LAYER_OBJ_DECLARE(
   &AI_NET_OBJ_INSTANCE, &conv_dw_9_layer, AI_STATIC,
   .tensors = &conv_pw_8_chain, 
   .groups = 1, 
-  .nl_func = nl_func_relu_array_f32, 
+  .nl_func = nl_func_relu6_array_f32, 
   .filter_stride = AI_SHAPE_2D_INIT(1, 1), 
   .filter_pad = AI_SHAPE_2D_INIT(0, 0), 
 )
@@ -1391,7 +1391,7 @@ AI_LAYER_OBJ_DECLARE(
   &AI_NET_OBJ_INSTANCE, &conv_pw_9_layer, AI_STATIC,
   .tensors = &conv_dw_9_chain, 
   .groups = 128, 
-  .nl_func = nl_func_relu_array_f32, 
+  .nl_func = nl_func_relu6_array_f32, 
   .filter_stride = AI_SHAPE_2D_INIT(1, 1), 
   .filter_pad = AI_SHAPE_2D_INIT(1, 1), 
 )
@@ -1441,7 +1441,7 @@ AI_LAYER_OBJ_DECLARE(
   &AI_NET_OBJ_INSTANCE, &conv_dw_10_layer, AI_STATIC,
   .tensors = &conv_pw_9_chain, 
   .groups = 1, 
-  .nl_func = nl_func_relu_array_f32, 
+  .nl_func = nl_func_relu6_array_f32, 
   .filter_stride = AI_SHAPE_2D_INIT(1, 1), 
   .filter_pad = AI_SHAPE_2D_INIT(0, 0), 
 )
@@ -1491,7 +1491,7 @@ AI_LAYER_OBJ_DECLARE(
   &AI_NET_OBJ_INSTANCE, &conv_pw_10_layer, AI_STATIC,
   .tensors = &conv_dw_10_chain, 
   .groups = 128, 
-  .nl_func = nl_func_relu_array_f32, 
+  .nl_func = nl_func_relu6_array_f32, 
   .filter_stride = AI_SHAPE_2D_INIT(1, 1), 
   .filter_pad = AI_SHAPE_2D_INIT(1, 1), 
 )
@@ -1541,7 +1541,7 @@ AI_LAYER_OBJ_DECLARE(
   &AI_NET_OBJ_INSTANCE, &conv_dw_11_layer, AI_STATIC,
   .tensors = &conv_pw_10_chain, 
   .groups = 1, 
-  .nl_func = nl_func_relu_array_f32, 
+  .nl_func = nl_func_relu6_array_f32, 
   .filter_stride = AI_SHAPE_2D_INIT(1, 1), 
   .filter_pad = AI_SHAPE_2D_INIT(0, 0), 
 )
@@ -1591,7 +1591,7 @@ AI_LAYER_OBJ_DECLARE(
   &AI_NET_OBJ_INSTANCE, &conv_pw_11_layer, AI_STATIC,
   .tensors = &conv_dw_11_chain, 
   .groups = 128, 
-  .nl_func = nl_func_relu_array_f32, 
+  .nl_func = nl_func_relu6_array_f32, 
   .filter_stride = AI_SHAPE_2D_INIT(1, 1), 
   .filter_pad = AI_SHAPE_2D_INIT(1, 1), 
 )
@@ -1641,7 +1641,7 @@ AI_LAYER_OBJ_DECLARE(
   &AI_NET_OBJ_INSTANCE, &conv_dw_12_layer, AI_STATIC,
   .tensors = &conv_pw_11_chain, 
   .groups = 1, 
-  .nl_func = nl_func_relu_array_f32, 
+  .nl_func = nl_func_relu6_array_f32, 
   .filter_stride = AI_SHAPE_2D_INIT(1, 1), 
   .filter_pad = AI_SHAPE_2D_INIT(0, 0), 
 )
@@ -1691,7 +1691,7 @@ AI_LAYER_OBJ_DECLARE(
   &AI_NET_OBJ_INSTANCE, &conv_pw_12_layer, AI_STATIC,
   .tensors = &conv_dw_12_chain, 
   .groups = 128, 
-  .nl_func = nl_func_relu_array_f32, 
+  .nl_func = nl_func_relu6_array_f32, 
   .filter_stride = AI_SHAPE_2D_INIT(2, 2), 
   .filter_pad = AI_SHAPE_2D_INIT(0, 0), 
 )
@@ -1741,7 +1741,7 @@ AI_LAYER_OBJ_DECLARE(
   &AI_NET_OBJ_INSTANCE, &conv_dw_13_layer, AI_STATIC,
   .tensors = &conv_pw_12_chain, 
   .groups = 1, 
-  .nl_func = nl_func_relu_array_f32, 
+  .nl_func = nl_func_relu6_array_f32, 
   .filter_stride = AI_SHAPE_2D_INIT(1, 1), 
   .filter_pad = AI_SHAPE_2D_INIT(0, 0), 
 )
@@ -1791,7 +1791,7 @@ AI_LAYER_OBJ_DECLARE(
   &AI_NET_OBJ_INSTANCE, &conv_pw_13_layer, AI_STATIC,
   .tensors = &conv_dw_13_chain, 
   .groups = 256, 
-  .nl_func = nl_func_relu_array_f32, 
+  .nl_func = nl_func_relu6_array_f32, 
   .filter_stride = AI_SHAPE_2D_INIT(1, 1), 
   .filter_pad = AI_SHAPE_2D_INIT(1, 1), 
 )
@@ -1841,7 +1841,7 @@ AI_LAYER_OBJ_DECLARE(
   &AI_NET_OBJ_INSTANCE, &conv_preds_layer, AI_STATIC,
   .tensors = &conv_pw_13_chain, 
   .groups = 1, 
-  .nl_func = nl_func_relu_array_f32, 
+  .nl_func = nl_func_relu6_array_f32, 
   .filter_stride = AI_SHAPE_2D_INIT(1, 1), 
   .filter_pad = AI_SHAPE_2D_INIT(0, 0), 
   .filter_pad_r = AI_SHAPE_2D_INIT(0, 0), 
@@ -2203,7 +2203,7 @@ ai_bool ai_mobilenet_get_info(
       .api_version            = ai_platform_api_get_version(),
       .interface_api_version  = ai_platform_interface_api_get_version(),
       
-      .n_macc            = 19609386,
+      .n_macc            = 20252586,
       .n_inputs          = AI_MOBILENET_IN_NUM,
       .inputs            = AI_BUFFER_OBJ_INIT(
                               AI_BUFFER_FORMAT_FLOAT,
