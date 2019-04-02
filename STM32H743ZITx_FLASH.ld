@@ -177,14 +177,14 @@ SECTIONS
     . = ALIGN(8);
   } >DTCMRAM
 
-  .L2RAM : 
+  .Activations : 
   {
-    KEEP(*(.L2RAM)) 
+    KEEP(*(.Activations)) 
   } >RAM_D1
 
-  .L3RAM : 
+  .IOBuffers : 
   {
-    KEEP(*(.L2RAM)) 
+    KEEP(*(.IOBuffers)) 
   } >RAM_D2
   
   /* Remove information from the standard libraries */

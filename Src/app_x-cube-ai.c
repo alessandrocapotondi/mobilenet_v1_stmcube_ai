@@ -75,18 +75,18 @@ void MX_X_CUBE_AI_Process(void)
 
 static const ai_network_entry_t networks[AI_MNETWORK_NUMBER] = {
     {
-        .name = (const char *)AI_MOBILENET_MODEL_NAME,
-        .config = AI_MOBILENET_DATA_CONFIG,
-        .ai_get_info = ai_mobilenet_get_info,
-        .ai_create = ai_mobilenet_create,
-        .ai_destroy = ai_mobilenet_destroy,
-        .ai_get_error = ai_mobilenet_get_error,
-        .ai_init = ai_mobilenet_init,
-        .ai_run = ai_mobilenet_run,
-        .ai_forward = ai_mobilenet_forward,
-        .ai_data_weights_get_default = ai_mobilenet_data_weights_get,
-        .params = { AI_MOBILENET_DATA_WEIGHTS(0),
-                AI_MOBILENET_DATA_ACTIVATIONS(0)},
+        .name = (const char *)AI_MOBILENET_128_0_25_MODEL_NAME,
+        .config = AI_MOBILENET_128_0_25_DATA_CONFIG,
+        .ai_get_info = ai_mobilenet_128_0_25_get_info,
+        .ai_create = ai_mobilenet_128_0_25_create,
+        .ai_destroy = ai_mobilenet_128_0_25_destroy,
+        .ai_get_error = ai_mobilenet_128_0_25_get_error,
+        .ai_init = ai_mobilenet_128_0_25_init,
+        .ai_run = ai_mobilenet_128_0_25_run,
+        .ai_forward = ai_mobilenet_128_0_25_forward,
+        .ai_data_weights_get_default = ai_mobilenet_128_0_25_data_weights_get,
+        .params = { AI_MOBILENET_128_0_25_DATA_WEIGHTS(0),
+                AI_MOBILENET_128_0_25_DATA_ACTIVATIONS(0)},
     },
 };
 

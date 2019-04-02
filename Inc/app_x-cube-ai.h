@@ -74,13 +74,13 @@ typedef struct {
     ai_i32 (*ai_forward)(ai_handle network, const ai_buffer* input);
 } ai_network_entry_t;
 
-#include "mobilenet.h"
-#include "mobilenet_data.h"
+#include "mobilenet_128_0_25.h"
+#include "mobilenet_128_0_25_data.h"
 
 #define AI_MNETWORK_NUMBER  (1)
-#define AI_MNETWORK_DATA_ACTIVATIONS_SIZE AI_MOBILENET_DATA_ACTIVATIONS_SIZE
-#define AI_MNETWORK_IN_1_SIZE AI_MOBILENET_IN_1_SIZE
-#define AI_MNETWORK_OUT_1_SIZE AI_MOBILENET_OUT_1_SIZE
+#define AI_MNETWORK_DATA_ACTIVATIONS_SIZE AI_MOBILENET_128_0_25_DATA_ACTIVATIONS_SIZE
+#define AI_MNETWORK_IN_1_SIZE AI_MOBILENET_128_0_25_IN_1_SIZE
+#define AI_MNETWORK_OUT_1_SIZE AI_MOBILENET_128_0_25_OUT_1_SIZE
 
 AI_API_DECLARE_BEGIN
 
