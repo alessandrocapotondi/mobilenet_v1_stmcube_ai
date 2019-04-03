@@ -19,6 +19,13 @@ The project folder structure follows the classic STMWorkbench project template. 
 - `mobilenet_cubemx_ai.ioc`: STMCubeMX project file.
 
 ## Measured Performances
-Model  | Million MACs | Million Parameters | Top-1 Accuracy| Top-5 Accuracy | CPU Cycles (MCycles)| Latency @400MHz (s)|
-:----:|:------------:|:----------:|:-------:|:-------:|:-------:|:-------:|
-[MobileNet_v1_0.25_128](https://github.com/fchollet/deep-learning-models/releases/download/v0.6/mobilenet_2_5_128_tf.h5)|14|0.47|41.5|66.3|99 MCycles|0.247 s|
+Million MACs | Million Parameters | Top-1 Accuracy| Top-5 Accuracy | CPU Cycles (MCycles)| Latency @400MHz (s)| MMACs/s | MMACs/s/W* |
+:------------:|:----------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|
+14|0.47|41.5|66.3|99|0.247|56.7|84.6|
+
+* This number refers to an average power consumption of `0.68` Watt measured at the power source, so it CANNOT be considered as efficiency metric of the MCU, but it is the efficiency of this particular solution, which includes LED activations, GPIO triggering, and all the other peripherals on the board.
+
+## Execution Screenshot
+<p align="center">
+  <img src="docs/screenshot.jpg" align="middle" width="480">
+</p>
