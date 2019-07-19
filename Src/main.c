@@ -108,6 +108,7 @@ int main(void)
   /* USER CODE BEGIN 1 */
 
   /* USER CODE END 1 */
+  
 
   /* Enable I-Cache---------------------------------------------------------*/
   SCB_EnableICache();
@@ -140,6 +141,7 @@ int main(void)
 
   /* Inference repetitions */
   int nb_run = 20;
+  /* USER CODE END 2 */
 
   /* Init cycle counters */
   USR_CC_ENABLE();
@@ -155,7 +157,7 @@ int main(void)
   }
 
   for( int i=0; i<nb_run; i++) {
-	  /* perform inference */
+      /* perform inference */
       USR_CC_RESET();
       usr_mobilenet_run(in_data, out_data);
       USR_GET_CC_ACC_TIMESTAMP(usr_cycle_counter);
@@ -170,6 +172,7 @@ int main(void)
   usr_mobilenet_deinit();
 }
 
+
 /**
   * @brief System Clock Configuration
   * @retval None
@@ -182,15 +185,12 @@ void SystemClock_Config(void)
 
   /** Supply configuration update enable 
   */
-  MODIFY_REG(PWR->CR3, PWR_CR3_SCUEN, 0);
+  HAL_PWREx_ConfigSupply(PWR_LDO_SUPPLY);
   /** Configure the main internal regulator output voltage 
   */
-  __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
+  __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE0);
 
-  while ((PWR->D3CR & (PWR_D3CR_VOSRDY)) != PWR_D3CR_VOSRDY) 
-  {
-    
-  }
+  while(!__HAL_PWR_GET_FLAG(PWR_FLAG_VOSRDY)) {}
   /** Initializes the CPU, AHB and APB busses clocks 
   */
   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI48|RCC_OSCILLATORTYPE_HSI;
@@ -199,8 +199,8 @@ void SystemClock_Config(void)
   RCC_OscInitStruct.HSI48State = RCC_HSI48_ON;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI;
-  RCC_OscInitStruct.PLL.PLLM = 8;
-  RCC_OscInitStruct.PLL.PLLN = 100;
+  RCC_OscInitStruct.PLL.PLLM = 4;
+  RCC_OscInitStruct.PLL.PLLN = 60;
   RCC_OscInitStruct.PLL.PLLP = 2;
   RCC_OscInitStruct.PLL.PLLQ = 16;
   RCC_OscInitStruct.PLL.PLLR = 2;
@@ -224,7 +224,7 @@ void SystemClock_Config(void)
   RCC_ClkInitStruct.APB2CLKDivider = RCC_APB2_DIV2;
   RCC_ClkInitStruct.APB4CLKDivider = RCC_APB4_DIV2;
 
-  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_2) != HAL_OK)
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_4) != HAL_OK)
   {
     Error_Handler();
   }
@@ -235,6 +235,9 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
+  /** Enable USB Voltage detector 
+  */
+  HAL_PWREx_EnableUSBVoltageDetector();
 }
 
 /**
@@ -341,12 +344,21 @@ static void MX_USART3_UART_Init(void)
   huart3.Init.HwFlowCtl = UART_HWCONTROL_NONE;
   huart3.Init.OverSampling = UART_OVERSAMPLING_16;
   huart3.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
-  huart3.Init.Prescaler = UART_PRESCALER_DIV1;
-  huart3.Init.FIFOMode = UART_FIFOMODE_DISABLE;
-  huart3.Init.TXFIFOThreshold = UART_TXFIFO_THRESHOLD_1_8;
-  huart3.Init.RXFIFOThreshold = UART_RXFIFO_THRESHOLD_1_8;
+  huart3.Init.ClockPrescaler = UART_PRESCALER_DIV1;
   huart3.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
   if (HAL_UART_Init(&huart3) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_UARTEx_SetTxFifoThreshold(&huart3, UART_TXFIFO_THRESHOLD_1_8) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_UARTEx_SetRxFifoThreshold(&huart3, UART_RXFIFO_THRESHOLD_1_8) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_UARTEx_DisableFifoMode(&huart3) != HAL_OK)
   {
     Error_Handler();
   }
