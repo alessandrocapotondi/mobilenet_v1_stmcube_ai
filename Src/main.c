@@ -105,11 +105,6 @@ static void MX_USB_OTG_FS_PCD_Init(void);
   */
 int main(void)
 {
-  /* USER CODE BEGIN 1 */
-
-  /* USER CODE END 1 */
-  
-
   /* Enable I-Cache---------------------------------------------------------*/
   SCB_EnableICache();
 
@@ -121,16 +116,8 @@ int main(void)
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
   HAL_Init();
 
-  /* USER CODE BEGIN Init */
-
-  /* USER CODE END Init */
-
   /* Configure the system clock */
   SystemClock_Config();
-
-  /* USER CODE BEGIN SysInit */
-
-  /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
@@ -141,35 +128,36 @@ int main(void)
 
   /* Inference repetitions */
   int nb_run = 20;
-  /* USER CODE END 2 */
 
-  /* Init cycle counters */
-  USR_CC_ENABLE();
-  USR_CC_RESET();
+//  /* Init cycle counters */
+//  USR_CC_ENABLE();
+//  USR_CC_RESET();
 
-  /* Initialize NN Model */
-  usr_mobilenet_init();
+//  /* Initialize NN Model */
+//  usr_mobilenet_init();
 
-  /* fill a float array with random data in the range [-1, 1] */
-  for ( ai_size i=0; i<AI_MOBILENET_128_0_25_IN_1_SIZE; i++ ) {
-      const ai_float r = (((ai_float)rand()/RAND_MAX)*2)-1;
-      in_data[i] = r;
-  }
+//  /* fill a float array with random data in the range [-1, 1] */
+//  for ( ai_size i=0; i<AI_MOBILENET_128_0_25_IN_1_SIZE; i++ ) {
+//      const ai_float r = (((ai_float)rand()/RAND_MAX)*2)-1;
+//      in_data[i] = r;
+//  }
 
   for( int i=0; i<nb_run; i++) {
       /* perform inference */
-      USR_CC_RESET();
-      usr_mobilenet_run(in_data, out_data);
-      USR_GET_CC_ACC_TIMESTAMP(usr_cycle_counter);
+//      USR_CC_RESET();
+//      usr_mobilenet_run(in_data, out_data);
+//      USR_GET_CC_ACC_TIMESTAMP(usr_cycle_counter);
       HAL_GPIO_TogglePin(Mobilenet_GPIO_Port,Mobilenet_Pin);
       HAL_GPIO_TogglePin(RedLED_GPIO_Port,RedLED_Pin);
   }
 
-  /* Avg Cycles */
-  usr_cycle_counter /= nb_run;
+//  /* Avg Cycles */
+//  usr_cycle_counter /= nb_run;
 
-  /* Release NN Model */
-  usr_mobilenet_deinit();
+//  /* Release NN Model */
+//  usr_mobilenet_deinit();
+
+  return 0;
 }
 
 

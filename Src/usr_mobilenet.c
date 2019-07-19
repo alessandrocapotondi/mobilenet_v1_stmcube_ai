@@ -75,8 +75,8 @@ int usr_mobilenet_run(const ai_float *in_data, ai_float *out_data) {
 	ai_error err;
 
 	/* AI buffer handlers */
-	ai_buffer ai_input[AI_MOBILENET_128_0_25_IN_NUM] = { AI_MOBILENET_128_0_25_IN_1 };
-	ai_buffer ai_output[AI_MOBILENET_128_0_25_OUT_NUM] = { AI_MOBILENET_128_0_25_OUT_1 };
+	ai_buffer ai_input[AI_MOBILENET_128_0_25_IN_NUM] = { AI_MOBILENET_128_0_25_IN };
+	ai_buffer ai_output[AI_MOBILENET_128_0_25_OUT_NUM] = { AI_MOBILENET_128_0_25_OUT };
 
 	/* Parameters checking */
 	if (!in_data || !out_data || !mobilenet_network)
