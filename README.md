@@ -1,5 +1,5 @@
 # Mobilenet on STMH7 using STMCubeMX.AI
-(new version is located here: https://github.com/alessandrocapotondi/MobileNet_v1_x_cube_ai_4.1.0)
+***(new version is located here: https://github.com/alessandrocapotondi/MobileNet_v1_x_cube_ai_4.1.0)***
 
 The repo contains a STMWorkbench project that aims to fit a [Mobilenet v1](https://github.com/tensorflow/models/blob/master/research/slim/nets/mobilenet_v1.md) (`3,128,128`, alpha=`0.25`) into a MCU STM32H7 using the STMCubeMX.AI flow. Note that the selected Mobilenet version is the biggest model that can be fitted on the MCU STM32H7 using the STMCubeMX.AI flow.
 
